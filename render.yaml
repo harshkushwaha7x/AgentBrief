@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: newsletter-agent
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run streamlit_app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true
+    healthCheckPath: /
+    autoDeployTrigger: commit
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.11
+      - key: NEWSLETTER_LLM_PROVIDER
+        value: auto
+      - key: OPENAI_API_KEY
+        sync: false
