@@ -7,6 +7,6 @@ __pycache__/
 htmlcov/
 .idea/
 .vscode/
-.streamlit/
+
 outputs/*
 !outputs/.gitkeep

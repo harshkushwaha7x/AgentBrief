@@ -11,6 +11,14 @@ def get_chat_model() -> Any | None:
 
     provider = os.getenv("NEWSLETTER_LLM_PROVIDER", "auto").strip().lower()
 
+    if provider in {"auto", "gemini"} and os.getenv("GOOGLE_API_KEY"):
+        from langchain_google_genai import ChatGoogleGenerativeAI
+
+        return ChatGoogleGenerativeAI(
+            model=os.getenv("GEMINI_MODEL", "gemini-2.0-flash"),
+            temperature=0.3,
+        )
+
     if provider in {"auto", "openai"} and os.getenv("OPENAI_API_KEY"):
         from langchain_openai import ChatOpenAI
 

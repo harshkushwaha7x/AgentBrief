@@ -22,7 +22,7 @@ pip install -r requirements.txt
 copy .env.example .env
 ```
 
-Set `OPENAI_API_KEY` for OpenAI, or set `OLLAMA_MODEL` to use local Ollama. If neither is set, the app still runs with local extractive summaries.
+Set `GOOGLE_API_KEY` for Gemini (free at [aistudio.google.com](https://aistudio.google.com)), `OPENAI_API_KEY` for OpenAI, or `OLLAMA_MODEL` for local Ollama. If no key is set, the app still runs with local extractive summaries.
 
 ## Run
 
